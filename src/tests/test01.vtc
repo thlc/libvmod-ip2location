@@ -1,4 +1,4 @@
-varnishtest "Test example vmod"
+varnishtest "Test ip2location vmod"
 
 server s1 {
        rxreq
@@ -6,16 +6,21 @@ server s1 {
 } -start
 
 varnish v1 -vcl+backend {
-	import example from "${vmod_topbuild}/src/.libs/libvmod_ip2location.so";
+	import ip2location from "${vmod_topbuild}/src/.libs/libvmod_ip2location.so";
 
-	sub vcl_deliver {
+	sub vcl_recv {
+          set req.http.X-Country = ip2location.country_short("42.42.42.42");
 	}
+
+        sub vcl_deliver {
+          set resp.http.X-Country = req.http.X-Country;
+        }
 } -start
 
 client c1 {
 	txreq -url "/"
 	rxresp
-	expect resp.http.hello == "Hello, World"
+	expect resp.http.X-Country == "KR"
 }
 
 client c1 -run

@@ -3,7 +3,7 @@ AM_CPPFLAGS = -I$(VARNISHSRC)/include -I$(VARNISHSRC)
 vmoddir = $(VMODDIR)
 vmod_LTLIBRARIES = libvmod_ip2location.la
 
-libvmod_ip2location_la_LDFLAGS = -module -export-dynamic -avoid-version -shared
+libvmod_ip2location_la_LDFLAGS = -module -export-dynamic -avoid-version -shared -lIP2Location
 
 libvmod_ip2location_la_SOURCES = \
 	vcc_if.c \

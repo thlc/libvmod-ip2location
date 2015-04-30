@@ -1,0 +1,12 @@
+Source: libvmod-ip2location
+Section: web
+Priority: extra
+Maintainer: Thomas Lecomte <th.lecomte@gmail.com>
+Build-Depends: debhelper (>= 7), build-essential, python-docutils
+Standards-Version: 3.8.1
+Vcs-Git: git://github.com/thlc/libvmod-ip2location.git
+
+Package: libvmod-ip2location
+Architecture: amd64
+Depends: varnish, ${Varnish:ABI}, ${misc:Depends}, ${shlibs:Depends}
+Description: IP2Location bindings for Varnish

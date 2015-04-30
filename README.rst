@@ -24,8 +24,8 @@ Implements bindings to IP2Location from the Varnish VCL.
 FUNCTIONS
 =========
 
-hello
------
+country_short
+-------------
 
 Prototype
         ::
@@ -38,11 +38,11 @@ Description
 Example
         ::
 
-                set resp.http.X-Country = ip2l.country_short("World");
+                set req.http.X-Country = ip2l.country_short("World");
 
 HISTORY
 =======
 
-This manual page was released as part of the libvmod-ip2locatin package.
+This manual page was released as part of the libvmod-ip2location package.
 It is based on the excellent libvmod-example package provided by Varnish
 Software.

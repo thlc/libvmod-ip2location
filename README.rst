@@ -30,7 +30,7 @@ country_short
 Prototype
         ::
 
-                country_short(STRING S)
+                country_short(STRING ip)
 Return value
 	STRING
 Description
@@ -38,7 +38,23 @@ Description
 Example
         ::
 
-                set req.http.X-Country = ip2l.country_short("World");
+                set req.http.X-Country = ip2location.country_short("" + client.ip);
+
+region
+------
+
+Prototype
+        ::
+
+                region(STRING ip)
+Return value
+	STRING
+Description
+	Returns the region/state code determined from the IP.
+Example
+        ::
+
+                set req.http.X-Region = ip2location.region("" + client.ip);
 
 HISTORY
 =======

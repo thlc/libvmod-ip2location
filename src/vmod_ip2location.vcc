@@ -1,3 +1,4 @@
 Module ip2location
 Init init_function
 Function STRING country_short(PRIV_VCL, STRING)
+Function STRING region(PRIV_VCL, STRING)

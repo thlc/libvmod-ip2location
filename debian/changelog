@@ -1,4 +1,13 @@
-libvmod-ip2location (0.1) unstable; urgency=low
+libvmod-ip2location (0.2-1) unstable; urgency=medium
+
+  * First working version.
+  * Added sanity checks.
+  * IP2Location database is now reloaded automatically when updated.
+
+ -- Thomas Lecomte <th.lecomte@gmail.com>  Wed, 29 Apr 2015 16:30:00 +0100
+
+
+libvmod-ip2location (0.1-1) unstable; urgency=low
 
   * First version
 

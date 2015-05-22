@@ -1,6 +1,6 @@
 Summary: IP2Location bindings for Varnish
 Name: vmod-ip2location
-Version: 0.1
+Version: 1.1
 Release: 1%{?dist}
 License: BSD
 Group: System Environment/Daemons

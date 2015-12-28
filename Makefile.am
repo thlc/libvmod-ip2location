@@ -1,8 +1,11 @@
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 -I ${LIBVARNISHAPI_DATAROOTDIR}/aclocal
 
 SUBDIRS = src
 
 doc_DATA = README.rst LICENSE
+
+DISTCHECK_CONFIGURE_FLAGS = \
+	VMOD_DIR='$${libdir}/varnish/vmods'
 
 dist_man_MANS = vmod_ip2location.3
 MAINTAINERCLEANFILES = $(dist_man_MANS)

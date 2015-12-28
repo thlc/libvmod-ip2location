@@ -1,3 +1,9 @@
+libvmod-ip2location (1.1-1) testing; urgency=medium
+
+  * Testing release
+
+ -- Thomas Lecomte <th.lecomte@gmail.com>  Fri, 22 May 2015 16:42:00 +0100
+
 libvmod-ip2location (0.2-1) unstable; urgency=medium
 
   * First working version.

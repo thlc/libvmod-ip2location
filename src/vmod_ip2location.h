@@ -5,4 +5,4 @@ typedef struct vmod_ip2location_data {
 } ip2location_data_t;
 
 /* FIXME: put this in a variable/config/default file */
-#define IP2LOCATION_DB_PATH "/etc/varnish/IP2LOCATION.BIN"
+#define IP2LOCATION_DB_PATH "/usr/lib/ip2location/IP2LOCATION.BIN"

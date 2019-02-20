@@ -79,7 +79,7 @@ event_handler(VRT_CTX, struct vmod_priv *priv, enum vcl_event_e e)
 }
 
 VCL_VOID
-vmod_set_path(const struct vrt_ctx *ctx, struct vmod_priv *priv, const char *new_path)
+vmod_set_path(VRT_CTX, struct vmod_priv *priv, const char *new_path)
 {
     path = (char *) new_path;
 }

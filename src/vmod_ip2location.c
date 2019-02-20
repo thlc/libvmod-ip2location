@@ -5,10 +5,7 @@
 #include <pthread.h>
 #include <IP2Location.h>
 
-#include "vcl.h"
-#include "vrt.h"
 #include "cache/cache.h"
-#include "vcc_if.h"
 #include "vmod_ip2location.h"
 
 #define VMOD_LOG(...) VSLb(ctx->vsl, SLT_VCL_Log, __VA_ARGS__);
@@ -73,7 +70,6 @@ event_handler(VRT_CTX, struct vmod_priv *priv, enum vcl_event_e e)
 		break;
 	case VCL_EVENT_WARM:
 	case VCL_EVENT_COLD:
-	case VCL_EVENT_USE:
 	default:
 		break;
 	}

@@ -10,7 +10,7 @@
 
 #define VMOD_LOG(...) VSLb(ctx->vsl, SLT_VCL_Log, __VA_ARGS__);
 
-char * path = IP2LOCATION_DB_PATH;
+char * path = NULL;
 
 void
 i2pl_free(void *d)

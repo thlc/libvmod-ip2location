@@ -8,7 +8,7 @@ Varnish IP2Location Module
 
 :Author: Thomas Lecomte
 :Date: 2015-04-29
-:Version: 1.1
+:Version: 2
 :Manual section: 3
 
 SYNOPSIS

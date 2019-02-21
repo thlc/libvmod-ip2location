@@ -5,13 +5,12 @@
 #include <pthread.h>
 #include <IP2Location.h>
 
-#include "vcl.h"
-#include "vrt.h"
 #include "cache/cache.h"
-#include "vcc_if.h"
 #include "vmod_ip2location.h"
 
 #define VMOD_LOG(...) VSLb(ctx->vsl, SLT_VCL_Log, __VA_ARGS__);
+
+char * path = NULL;
 
 void
 i2pl_free(void *d)
@@ -35,14 +34,14 @@ reload_db(ip2location_data_t *data)
   if (!data)
   	WRONG("reload_db: data is NULL");
 
-  if (stat(IP2LOCATION_DB_PATH, &s) == 0) {
+  if (stat(path, &s) == 0) {
     if (data->ip2l_handle == NULL || s.st_mtime > data->ip2l_db_ts) {
       // try to obtain the lock to reload the database.
       // if we can't, it means another thread is already reloading the database.
       if (pthread_mutex_trylock(&data->lock) == 0) {
         if (data->ip2l_handle != NULL)
           IP2Location_close(data->ip2l_handle);
-        data->ip2l_handle = IP2Location_open(IP2LOCATION_DB_PATH);
+        data->ip2l_handle = IP2Location_open(path);
         IP2Location_open_mem(data->ip2l_handle, IP2LOCATION_CACHE_MEMORY);
         data->ip2l_db_ts = s.st_mtime;
 	pthread_mutex_unlock(&data->lock);
@@ -73,11 +72,16 @@ event_handler(VRT_CTX, struct vmod_priv *priv, enum vcl_event_e e)
 		break;
 	case VCL_EVENT_WARM:
 	case VCL_EVENT_COLD:
-	case VCL_EVENT_USE:
 	default:
 		break;
 	}
 	return (0);
+}
+
+VCL_VOID
+vmod_set_path(VRT_CTX, struct vmod_priv *priv, const char *new_path)
+{
+    path = (char *) new_path;
 }
 
 VCL_STRING

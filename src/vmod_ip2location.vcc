@@ -1,4 +1,5 @@
 $Module ip2location 3 IP2Location module
 $Event event_handler
+$Function VOID set_path(PRIV_VCL, STRING)
 $Function STRING country_short(PRIV_VCL, STRING)
 $Function STRING region(PRIV_VCL, STRING)
